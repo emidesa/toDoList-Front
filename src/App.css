@@ -1,0 +1,84 @@
+/* Login.css */
+body {
+    font-family: 'Arial', sans-serif;
+    color: rgb(14, 14, 14);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("https://img.freepik.com/vecteurs-premium/fond-ecran_918365-45.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.login-container {
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+}
+
+input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+button:hover {
+    background-color: #0056b3;
+ 
+}
+
+button:active {
+    background-color: #003f88;
+    transform: scale(0.98);
+    
+}
+
+button:focus {
+    outline: none;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #888;
+}
