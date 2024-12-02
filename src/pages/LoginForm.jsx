@@ -12,48 +12,52 @@ const LoginForm = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            // Envoi des informations d'identification à l'API
             const response = await axios.post('http://localhost:3001/api/user/login', { email, password });
 
-            if (response.data.user) {
-                // Stocker les informations de l'utilisateur dans le localStorage
+            if (response.data.user && response.data.token) {
                 localStorage.setItem('user', JSON.stringify(response.data.user));
-
-                // Rediriger vers la liste des utilisateurs après connexion réussie
+                localStorage.setItem('token', response.data.token);
                 navigate('/todolist');
             } else {
-                setError('Erreur : Utilisateur non trouvé.');
+                setError('Erreur : Informations de connexion invalides.');
             }
         } catch (err) {
-            // Gestion des erreurs, par exemple mauvais identifiants ou problème serveur
             setError(err.response?.data?.error || 'Erreur lors de la connexion.');
         }
     };
 
+    const handleGoToSignup = () => {
+        navigate('/addUser');
+    };
+
     return (
-        <form onSubmit={handleLogin}>
-            <h2>Connexion</h2>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            <div>
-                <label>Email :</label>
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-            </div>
-            <div>
-                <label>Mot de passe :</label>
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </div>
-            <button type="submit">Se connecter</button>
-        </form>
+        <div>
+            <form onSubmit={handleLogin}>
+                <h2>Connexion</h2>
+                {error && <p style={{ color: 'red' }}>{error}</p>}
+                <div>
+                    <label>Email :</label>
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </div>
+                <div>
+                    <label>Mot de passe :</label>
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                <button type="submit">Se connecter</button>
+            </form>
+
+            <button onClick={handleGoToSignup}>Créer un compte</button>
+        </div>
     );
 };
 

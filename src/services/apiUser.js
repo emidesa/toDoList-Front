@@ -5,15 +5,15 @@ function GetALLUser() {
 }
 
 function addUser(user) {
-    return axios.post("http://localhost:3001/api/user/addUser", user);  // Assurez-vous d'envoyer 'user' dans le corps de la requête
+    return axios.post("http://localhost:3001/api/user/addUser", user);  
 }
 
 function UpdateUser(id, user) {
-    return axios.put(`http://localhost:3001/api/user/updateUser/${id}`, user);  // Utilisez une interpolation de chaîne pour l'ID
+    return axios.put(`http://localhost:3001/api/user/updateUser/${id}`, user); 
 }
 
 function deleteUser(id) {
-    return axios.delete(`http://localhost:3001/api/user/deleteUser/${id}`);  // Utilisez une interpolation de chaîne pour l'ID
+    return axios.delete(`http://localhost:3001/api/user/deleteUser/${id}`); 
 }
 
 export default {

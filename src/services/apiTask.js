@@ -1,33 +1,48 @@
 import axios from 'axios';
 
+const API_URL = "http://localhost:3001/api/task";
 
-function GetALLtasks() {
-    return axios.get("http://localhost:3001/api/task/allTask");
+const axiosInstance = axios.create({
+  baseURL: API_URL,
+  timeout: 5000, 
+});
 
+axiosInstance.interceptors.request.use(config => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    config.headers['Authorization'] = `Bearer ${token}`;
+  }
+  return config;
+}, error => {
+  console.error('Request error:', error);
+  return Promise.reject(error);
+});
+
+axiosInstance.interceptors.response.use(response => response, error => {
+  console.error('Response error:', error);
+  return Promise.reject(error);
+});
+
+function getAllTasks() {
+  return axiosInstance.get('/allTask');
 }
 
-
-function addTasks(task) {
-    return axios.post("http://localhost:3001/api/task/addTask");
-
+function addTask(task) {
+  return axiosInstance.post('/addTask', task);
 }
 
 function updateTask(id, task) {
-    return axios.post("http://localhost:3001/api/task/updateTask/:id'");
-
+  return axiosInstance.put(`/updateTask/${id}`, task);
 }
 
-
 function deleteTask(id) {
-    return axios.post("http://localhost:3001/api/task/deleteTask/:id");
-
+  return axiosInstance.delete(`/deleteTask/${id}`);
 }
 
 export default {
-    GetALLtasks,
-    addTasks,
-    updateTask,
-    deleteTask,
-}
-
+  getAllTasks,
+  addTask,
+  updateTask,
+  deleteTask,
+};
 

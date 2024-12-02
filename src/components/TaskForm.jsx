@@ -1,24 +1,37 @@
 import React, { useState } from 'react';
-import '../index.css';
+import { toast } from 'react-toastify';
 
 const TaskForm = ({ onAddTask }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [finalDate, setFinalDate] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!title || !description || !finalDate) {
-            alert('Tous les champs doivent être remplis.');
+            toast.error('Tous les champs doivent être remplis.');
             return;
         }
 
-        const newTask = { title, description, final_date: finalDate };
-        onAddTask(newTask);
-        setTitle('');
-        setDescription('');
-        setFinalDate('');
+        const newTask = { 
+            title, 
+            description, 
+            final_date: new Date(finalDate).toISOString()
+        };
+
+        try {
+            await onAddTask(newTask);
+            
+            
+            setTitle('');
+            setDescription('');
+            setFinalDate('');
+            toast.success('Tâche ajoutée avec succès !');
+        } catch (error) {
+            console.error('Erreur lors de l\'ajout de la tâche:', error);
+            toast.error(`Erreur lors de l'ajout de la tâche: ${error.message}`);
+        }
     };
 
     return (
@@ -48,3 +61,4 @@ const TaskForm = ({ onAddTask }) => {
 };
 
 export default TaskForm;
+
