@@ -7,7 +7,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; 
 // Hook pour la navigation entre les différentes routes de l'application.
 
-import '../App.css'; 
+import '../Styles/login.css'; 
+import { Container } from 'react-bootstrap';
 // Importation du fichier CSS pour le style.
 
 const LoginForm = () => {
@@ -48,13 +49,14 @@ const LoginForm = () => {
 
     // **Gestionnaire pour rediriger vers la page d'inscription**
     const handleGoToSignup = () => {
+        e.preventDefault(); // Empêche le rechargement de la page
         navigate('/addUser'); 
         // Redirige l'utilisateur vers le formulaire d'inscription.
     };
 
     // Rendu du composant
     return (
-        <div>
+        <Container className='body-login'>
             {/* Formulaire de connexion */}
             <form onSubmit={handleLogin}>
                 <h2>Connexion</h2>
@@ -85,11 +87,12 @@ const LoginForm = () => {
                 </div>
                 {/* Bouton pour soumettre le formulaire */}
                 <button type="submit">Se connecter</button>
+                {/* Bouton pour rediriger l'utilisateur vers le formulaire d'inscription */}
+            <button onClick={handleGoToSignup}>Créer un compte</button>
             </form>
 
-            {/* Bouton pour rediriger l'utilisateur vers le formulaire d'inscription */}
-            <button onClick={handleGoToSignup}>Créer un compte</button>
-        </div>
+            
+        </Container>
     );
 };
 

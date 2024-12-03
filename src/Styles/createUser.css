@@ -1,0 +1,125 @@
+/* Style général de la page */
+.body-user {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #007bff, #6c63ff); /* Dégradé principal */
+    background-size: 400% 400%; /* Pour l'effet animé */
+    animation: gradientBackground 8s ease infinite; /* Animation fluide */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Animation pour le dégradé */
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Superposition d'un motif */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+    opacity: 0.2; /* Subtilité du motif */
+    z-index: -1;
+}
+
+/* Conteneur du formulaire */
+form {
+    background: rgba(255, 255, 255, 0.9); /* Fond légèrement translucide */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    padding: 40px 30px;
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px); /* Effet de flou arrière-plan */
+}
+
+/* Titre du formulaire */
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+/* Champs de saisie */
+input {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.3s ease;
+    background: #f9f9f9;
+}
+
+input:focus {
+    border-color: #007bff;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+/* Bouton de soumission */
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, #007bff, #6c63ff);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: linear-gradient(to right, #0056b3, #4a3fb1);
+    transform: translateY(-2px);
+}
+
+button:active {
+    background: linear-gradient(to right, #003f88, #372a93);
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    form {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    input,
+    button {
+        font-size: 0.9rem;
+    }
+}

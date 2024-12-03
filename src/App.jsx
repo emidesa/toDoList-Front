@@ -19,9 +19,13 @@ import { ToastContainer } from 'react-toastify';
 import TodoList from './pages/toDoList'; 
 // Importe la page de gestion des tâches (ToDo list).
 
+import CreateUser from './pages/CreateUser';
+// Importe la page de création d'utilisateur.
+
+
 const App = () => {
     // Vérifie si un utilisateur est connecté en regardant dans le stockage local du navigateur.
-    const isLoggedIn = !!localStorage.getItem('user'); 
+    const isLoggedIn = !!localStorage.getItem('token'); 
     // Si une clé "user" est présente, `isLoggedIn` sera `true`. Sinon, il sera `false`.
 
     return (
@@ -32,10 +36,13 @@ const App = () => {
 
                  {/* Redirection vers /login dès l'ouverture du site */}
                  <Route path="/" element={<Navigate to="/login" />} />
-                 <Route path="/login" element={<LoginForm />} />
+                 
 
                 {/* Route pour la page de connexion */}
                 <Route path="/login" element={<LoginForm />} />
+
+                {/* Route pour créer son compte */}
+                <Route path="/addUser" element={<CreateUser />} />
 
                 {/* Route pour la liste des utilisateurs */}
                 {/* Si l'utilisateur est connecté, il voit la page UserList. Sinon, il est redirigé vers /login */}

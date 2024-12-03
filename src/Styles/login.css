@@ -1,0 +1,99 @@
+/* Style général de la page */
+.body-login {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a73e8, #003f88); /* Dégradé bleu pour un thème moderne */
+   
+}
+
+/* Conteneur du formulaire */
+form {
+    background: rgba(255, 255, 255, 0.9); /* Fond légèrement translucide */
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Effet d'élévation */
+    padding: 40px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+/* Titre du formulaire */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #003f88; /* Couleur bleue élégante */
+    font-weight: bold;
+}
+
+/* Champ de saisie */
+input {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #ffffff; /* Fond blanc épuré */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #1a73e8; /* Couleur bleue lorsqu'on est en focus */
+    box-shadow: 0 4px 10px rgba(26, 115, 232, 0.3);
+}
+
+/* Boutons */
+button {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    background: linear-gradient(to right, #003f88, #1a73e8); /* Dégradé bleu */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background: linear-gradient(to right, #1a73e8, #003f88); /* Inversion des couleurs */
+    transform: translateY(-2px); /* Animation subtile */
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Texte d'erreur */
+p {
+    color: red;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    form {
+        padding: 30px 20px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    input,
+    button {
+        font-size: 0.9rem;
+    }
+}

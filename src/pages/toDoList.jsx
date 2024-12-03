@@ -16,6 +16,10 @@ import apiTask from '../services/apiTask';
 import { toast } from 'react-toastify'; 
 // Permet d'afficher des notifications à l'utilisateur.
 
+import '../Styles/todo.css';
+
+
+
 const TodoList = () => {
     // État local pour stocker les tâches.
     const [tasks, setTasks] = useState([]);
@@ -110,11 +114,13 @@ const TodoList = () => {
     }, [navigate]); 
 
     return (
-        <div>
-            <h2>Ma To-Do List</h2> 
-            {/* Titre de la page */}
+        <div>{/* Titre de la page */}
+            <h2 style={{marginTop:"64px"}}>Ma To-Do List</h2> 
+            
+            <button style={{width:"424px", }} onClick={handleLogout}>Déconnexion</button> 
 
-            <button onClick={handleLogout}>Déconnexion</button> 
+            
+            <div className='content'>
             {/* Bouton pour déconnecter l'utilisateur */}
 
             <TaskForm onAddTask={handleAddTask} /> 
@@ -127,7 +133,8 @@ const TodoList = () => {
             />
             {/* Liste des tâches avec des fonctions pour mettre à jour ou supprimer */}
         </div>
-    );
+   </div> 
+   );
 };
 
 export default TodoList; 

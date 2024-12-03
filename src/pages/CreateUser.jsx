@@ -7,6 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import apiUser from '../services/apiUser'; 
 // Importation du service pour les requêtes utilisateur.
 
+import '../Styles/CreateUser.css';
+import { Container } from 'react-bootstrap';
+
 const CreateUser = () => {
     const [name, setName] = useState(''); 
     const [email, setEmail] = useState(''); 
@@ -34,6 +37,7 @@ const CreateUser = () => {
     };
 
     return (
+        <Container className='body-user'>
         <form onSubmit={handleSubmit} className="create-user-form">
             <h1>Créer un utilisateur</h1>
             
@@ -72,6 +76,7 @@ const CreateUser = () => {
                 Créer
             </button>
         </form>
+        </Container>
     );
 };
 
