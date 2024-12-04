@@ -49,7 +49,6 @@ const LoginForm = () => {
 
     // **Gestionnaire pour rediriger vers la page d'inscription**
     const handleGoToSignup = () => {
-        e.preventDefault(); // Empêche le rechargement de la page
         navigate('/addUser'); 
         // Redirige l'utilisateur vers le formulaire d'inscription.
     };
